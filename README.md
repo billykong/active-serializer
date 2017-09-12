@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/billykong/active-serializer.svg?branch=master)](https://travis-ci.org/billykong/active-serializer)
+
 # active-serializer
 Rails active_model_serializer inspired nodejs object serializer
 
@@ -6,7 +8,7 @@ Rails active_model_serializer inspired nodejs object serializer
   `npm install active-serializer --save`
 
 ## Usage
-
+```
     const serialize = require('active-serializer');
 
     const object = { 
@@ -21,15 +23,18 @@ Rails active_model_serializer inspired nodejs object serializer
 
     const result = await serialize(object, attributes, options);
     console.log(result);
-  
+```
   Output should be: 
+```
     { 
         id: 'some_id', 
         name: 'some_name', 
         image_url: 'some_url'
     }
+```
 
 ### Nested Serialization
+```
     const nestedObject = { 
         id: 'some_id', 
         name: 'some_name', 
@@ -41,8 +46,6 @@ Rails active_model_serializer inspired nodejs object serializer
             attr2: 'will not be shown'
         }
     };
-
-    
     
     const object2Serializer = async (object2, options) => {
         const attributes2 = ['id', 'attr1'];
@@ -55,7 +58,9 @@ Rails active_model_serializer inspired nodejs object serializer
     }
     const result = await serialize(nestedObject, attributes1, options);
     console.log(result);
+```
   Output should be: 
+```
     { 
         id: 'some_id', 
         name: 'some_name', 
@@ -65,6 +70,7 @@ Rails active_model_serializer inspired nodejs object serializer
             attr1: 'some_attr'
         }
     }
+```
 
 
 ## Tests
@@ -73,6 +79,3 @@ Rails active_model_serializer inspired nodejs object serializer
 
 ## Contributing
 Please feel free and report issues or create pull request :]
-
-
-[![Build Status](https://travis-ci.org/billykong/active-serializer.svg?branch=master)](https://travis-ci.org/billykong/active-serializer)
