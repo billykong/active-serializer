@@ -1,6 +1,6 @@
 {
   "name": "active-serializer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Rails active_model_serializer inspired nodejs object serializer",
   "main": "index.js",
   "scripts": {
