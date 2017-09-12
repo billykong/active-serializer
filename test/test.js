@@ -56,6 +56,16 @@ describe('#serialize', function() {
     expect(result.object2.attr2).to.be.an('undefined');
   });
 
+  it('should ignore missing attributes', async () => {
+    const attributes = ['id', 'name', 'nonexist'];
+    const result = await serialize(nestedObject, attributes, {});
+    expect(result.id).to.equal('some_id');
+    expect(result.name).to.equal('some_name');
+    expect(result.unwanted).to.be.an('undefined');
+    expect(result.object2).to.be.an('undefined');
+    expect(result.nonexist).to.be.an('undefined');
+  });
+
 });
 
 
