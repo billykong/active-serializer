@@ -8,7 +8,7 @@ var toMask = require('json-mask');
  */
 
 module.exports = async (object, attributes, options={}) => {
-  const objectJson = object.toJSON();
+  const objectJson = object.toJSON ? object.toJSON(): object;
   await Promise.all(attributes.map(async (attr) => {
     if (Reflect.has(object, attr) && typeof object[attr] == 'function') {
       objectJson[attr] = await object[attr](options)

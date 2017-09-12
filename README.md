@@ -16,7 +16,7 @@ Rails active_model_serializer inspired nodejs object serializer
         image_url: async (options) => { return await 'some_url' }
     };
 
-    const attributes = ['id', 'name', 'logo_image_url'];
+    const attributes = ['id', 'name', 'image_url'];
     const options = {}
 
     const result = await serialize(object, attributes, options);
@@ -49,7 +49,7 @@ Rails active_model_serializer inspired nodejs object serializer
         return await serialize(object2, attributes2, options);
     };
 
-    const attributes1 = ['id', 'name', 'logo_image_url'];
+    const attributes1 = ['id', 'name', 'image_url', 'object2'];
     const options = { 
         'serializers': { 'object2': object2Serializer }
     }
