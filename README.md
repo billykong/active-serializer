@@ -73,3 +73,6 @@ Rails active_model_serializer inspired nodejs object serializer
 
 ## Contributing
 Please feel free and report issues or create pull request :]
+
+
+[![Build Status](https://travis-ci.org/billykong/active-serializer.svg?branch=master)](https://travis-ci.org/billykong/active-serializer)
