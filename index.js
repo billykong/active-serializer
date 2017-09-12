@@ -13,7 +13,7 @@ module.exports = async (object, attributes, options={}) => {
     if (Reflect.has(object, attr) && typeof object[attr] == 'function') {
       objectJson[attr] = await object[attr](options)
     } else if(!Reflect.has(object, attr)) {
-      console.log(object.toString() + ' missing attr: ' + attr);
+      console.log('missing attr: ' + attr);
     }
     
     if (options.serializers && options.serializers[attr]) {

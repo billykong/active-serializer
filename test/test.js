@@ -22,7 +22,7 @@ describe('#serialize', function() {
 
   it('should mask object with attributes only', async () => {
     const attributes = ['id', 'name'];
-    const result = await serialize(nestedObject, attributes, {});
+    const result = await serialize(nestedObject, attributes);
     expect(result.id).to.equal('some_id');
     expect(result.name).to.equal('some_name');
     expect(result.unwanted).to.be.an('undefined');
@@ -61,6 +61,26 @@ describe('#serialize', function() {
     const result = await serialize(nestedObject, attributes, {});
     expect(result.id).to.equal('some_id');
     expect(result.name).to.equal('some_name');
+    expect(result.unwanted).to.be.an('undefined');
+    expect(result.object2).to.be.an('undefined');
+    expect(result.nonexist).to.be.an('undefined');
+  });
+
+  it('should support toJSON()', async () => {
+    const someObject = {
+      id: 'some_id',
+      name: 'some_name',
+      image_url: async (options) => { return await 'some_url' }
+    };
+    someObject.toJSON = () => {
+      return this;
+    };
+
+    const attributes = ['id', 'name', 'image_url', 'nonexist'];
+    const result = await serialize(nestedObject, attributes, {});
+    expect(result.id).to.equal('some_id');
+    expect(result.name).to.equal('some_name')
+    expect(result.image_url).to.equal('some_url');
     expect(result.unwanted).to.be.an('undefined');
     expect(result.object2).to.be.an('undefined');
     expect(result.nonexist).to.be.an('undefined');
