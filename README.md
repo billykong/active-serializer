@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/billykong/active-serializer.svg?branch=master)](https://travis-ci.org/billykong/active-serializer)  [![Coverage Status](https://coveralls.io/repos/github/billykong/active-serializer/badge.svg?branch=master)](https://coveralls.io/github/billykong/active-serializer?branch=master)
+[![Build Status](https://travis-ci.org/billykong/active-serializer.svg?branch=master)](https://travis-ci.org/billykong/active-serializer)
+[![Coverage Status](https://coveralls.io/repos/github/billykong/active-serializer/badge.svg?branch=master)](https://coveralls.io/github/billykong/active-serializer?branch=master)
+[![npm version](https://img.shields.io/npm/v/active-serializer)](https://img.shields.io/npm/v/active-serializer)
+[![Run on Repl.it](https://repl.it/badge/github/billykong/active-serializer)](https://repl.it/github/billykong/active-serializer)
 
 # active-serializer
 Rails active_model_serializer inspired nodejs object serializer
