@@ -1,0 +1,22 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2.1.0
+    - name: Set up Node.js
+      uses: actions/setup-node@v1.4.1
+      with:
+        node-version: 10.0.0
+    - name: Run Test Suite
+      run: bash npm test
