@@ -18,5 +18,8 @@ jobs:
       uses: actions/setup-node@v1.4.1
       with:
         node-version: 10.0.0
-    - name: Run Test Suite
-      run: bash npm test
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm test
+      env:
+        CI: true
